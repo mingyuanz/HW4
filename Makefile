@@ -26,8 +26,13 @@ main:	main.o sort.o
 reverse:	main.o sort.o reverse_sort.o
 	$(CC) $(CFLAGS) $^ -o $@
 
+
+test:	test_quick_sort.o
+	$(CC) $(CFLAGS) $^ -o $@
+
 clean:
-	rm -f *.o main reverse main.out reverse.out
+	rm -f *.o main reverse test_quick_sort main.out reverse.out test_quick_sort.out
+
 
 .PHONY: clean run_main check_main run_reverse check_reverse check
 

@@ -12,6 +12,7 @@ uint64_t rdtsc(){
 	__asm__ __volatile__ ("rdtsc" : "=a" (lo), "=d" (hi));
 	return ((uint64_t)hi << 32) | lo;
 }
+//unsigned int of 64 bits (8 byte)
 
 
 void print_numbers(const int* numbers, unsigned count) {
@@ -31,6 +32,7 @@ uint64_t get_sorted_copy_and_effort(
 		unsigned count,
 		sorting_fn sort) {
 	*numbers_out = malloc(sizeof(int)*count);
+	//numbers_out is a ptr to the sorted int array
 	memcpy(*numbers_out, numbers_in, sizeof(int)*count);
 
 	uint64_t before = rdtsc();
